@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const ExtendedClient = require('../../../class/ExtendedClient');
 const { time } = require('../../../functions');
@@ -19,7 +20,7 @@ module.exports = {
 
         const user = interaction.options.getUser('user') || interaction.user;
 
-        const member = interaction.guild.members.cache.get(user.id);
+        const member = interaction.guild?.members.cache.get(user.id);
 
         if (!member) {
             await interaction.reply({
@@ -32,7 +33,7 @@ module.exports = {
         const roles = [];
         
         if (member.roles) member.roles.cache.forEach((role) => {
-            if (role.id !== interaction.guild.roles.everyone.id) roles.push(`${role.toString()}`);
+            if (role.id !== interaction.guild?.roles.everyone.id) roles.push(`${role.toString()}`);
         });
 
         const arr = [
@@ -40,10 +41,10 @@ module.exports = {
             `**Display name**: ${member.nickname || user.displayName}`,
             `**ID**: ${user.id}`,
             `**Joined Discord**: ${time(user.createdTimestamp, 'd')} (${time(user.createdTimestamp, 'R')})`,
-            `**Joined server**: ${time(member.joinedTimestamp, 'd')} (${time(member.joinedTimestamp, 'R')})`,
+            `**Joined server**: ${time(member?.joinedTimestamp, 'd')} (${time(member?.joinedTimestamp, 'R')})`,
             `**Roles** [${member.roles?.cache?.size - 1}]: ${roles.join(', ')}`,
             `**In a voice channel?**: ${member.voice.channel ? 'Yes' : 'No'}`,
-            `**Guild owner?**: ${interaction.guild.ownerId === user.id ? 'Yes' : 'No'}`,
+            `**Guild owner?**: ${interaction.guild?.ownerId === user.id ? 'Yes' : 'No'}`,
             `**Timed out?**: ${member.communicationDisabledUntilTimestamp ? 'Yes' : 'No'}`,
         ];
 
