@@ -22,13 +22,15 @@ module.exports = class extends Client {
 
     constructor() {
         super({
+            // @ts-ignore
             intents: [Object.keys(GatewayIntentBits)],
+            // @ts-ignore
             partials: [Object.keys(Partials)],
             presence: {
                 activities: [{
                     name: 'something goes here',
                     type: 4,
-                    state: 'DiscordJS-V14-Bot-Template v2'
+                    state: 'SAFR Discord Bot'
                 }]
             }
         });
@@ -43,6 +45,7 @@ module.exports = class extends Client {
 
         await this.login(process.env.CLIENT_TOKEN || config.client.token);
 
+        // @ts-ignore
         if (config.handler.deploy) deploy(this, config);
     };
 };
