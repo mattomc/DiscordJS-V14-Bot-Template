@@ -5,9 +5,9 @@ module.exports = {
     structure: new SlashCommandBuilder()
         .setName('announce')
         .setDescription('Replies with pong!')
-        .addStringOption((opt) => opt.setName('Message').setDescription('Message to announce').setRequired(true))
-        .addChannelOption((opt) => opt.setName('Channel').setDescription('Channel the announcement will be posted').setRequired(true))
-        .addMentionableOption((opt) => opt.setName('Mention').setDescription('Role to mention')),
+        .addStringOption((opt) => opt.setName('message').setDescription('Message to announce').setRequired(true))
+        .addChannelOption((opt) => opt.setName('channel').setDescription('Channel the announcement will be posted').setRequired(true))
+        .addMentionableOption((opt) => opt.setName('mention').setDescription('Role to mention')),
     options: {
         cooldown: 5000
     },
@@ -21,12 +21,12 @@ module.exports = {
             content: 'Sending'
         });
 
-        const Channel_Provided = interaction.options.getChannel('Channel') || interaction.channel
-        const Message = interaction.options.getString('Message')
+        const Channel_Provided = interaction.options.getChannel('channel') || interaction.channel
+        const Message = interaction.options.getString('message')
 
         // @ts-ignore
         Channel_Provided.send(Message);
-        
+
         await interaction.reply({
             content: 'Sent Announcement'
         })
