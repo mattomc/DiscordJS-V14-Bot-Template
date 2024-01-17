@@ -17,10 +17,6 @@ module.exports = {
      */
     run: async (client, interaction) => {
 
-        await interaction.reply({
-            content: 'Sending'
-        });
-
         const Channel_Provided = interaction.options.getChannel('channel') || interaction.channel
         const Message = interaction.options.getString('message')
 
