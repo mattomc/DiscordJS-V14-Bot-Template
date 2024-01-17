@@ -1,16 +1,17 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder } = require('discord.js');
+const { ChatInputCommandInteraction, SlashCommandBuilder, PermissionsBitField, PermissionFlagsBits } = require('discord.js');
 const ExtendedClient = require('../../../class/ExtendedClient');
 const axios = require('axios').default
 
 module.exports = {
     structure: new SlashCommandBuilder()
         .setName('whitelist')
-        .setDescription('Whitelists a member! only Admins can use this command')
+        .setDescription('Whitelists a member! Allows the member selected to patrol in SAFR! Only members with Permission: ManageRoles can use this command!')
         .addUserOption((opt) =>
         opt.setName('user')
             .setDescription('The user.')
             .setRequired(true)
-    ),
+    )
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
     options: {
         cooldown: 5000
     },
