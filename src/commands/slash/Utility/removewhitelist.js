@@ -4,7 +4,7 @@ const axios = require('axios').default
 
 module.exports = {
     structure: new SlashCommandBuilder()
-        .setName('remove whitelist')
+        .setName('removewhitelist')
         .setDescription('Removes whitelist for a member! Denies the member selected to patrol in SAFR! Only members with Permission: ManageRoles can use this command!')
         .addUserOption((opt) =>
         opt.setName('user')
