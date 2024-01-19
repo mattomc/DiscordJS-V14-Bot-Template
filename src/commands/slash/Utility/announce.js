@@ -4,7 +4,7 @@ const ExtendedClient = require('../../../class/ExtendedClient');
 module.exports = {
     structure: new SlashCommandBuilder()
         .setName('announce')
-        .setDescription('Replies with pong!')
+        .setDescription('Sends a announcement to a specified channel')
         .addStringOption((opt) => opt.setName('message').setDescription('Message to announce').setRequired(true))
         .addChannelOption((opt) => opt.setName('channel').setDescription('Channel the announcement will be posted').setRequired(true))
         .addMentionableOption((opt) => opt.setName('mention').setDescription('Role to mention')),
