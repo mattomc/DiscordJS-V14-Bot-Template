@@ -23,9 +23,16 @@ module.exports = class extends Client {
     constructor() {
         super({
             // @ts-ignore
-            intents: [Object.keys(GatewayIntentBits), GatewayIntentBits.GuildMembers, GatewayIntentBits.Guilds],
+            intents: [
+                GatewayIntentBits.Guilds,
+                GatewayIntentBits.GuildMembers,
+                GatewayIntentBits.GuildMessages,
+                GatewayIntentBits.GuildMessageReactions,
+                GatewayIntentBits.DirectMessages,
+                GatewayIntentBits.DirectMessageReactions,
+            ],
             // @ts-ignore
-            partials: [Object.keys(Partials)],
+            partials: [Partials.GuildMember],
             presence: {
                 activities: [{
                     name: 'something goes here',
