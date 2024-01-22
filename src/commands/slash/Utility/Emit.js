@@ -29,6 +29,8 @@ module.exports = {
         if(Emit_Event === 'join'){
             // @ts-ignore
             console.log(`${member.nickname || member.displayName} joined`)
+            // @ts-ignore
+            client.emit('guildMemberAdd', member)
         }
         if(Emit_Event === 'leave'){
             // @ts-ignore
