@@ -11,19 +11,15 @@ module.exports = {
      * @returns
      */
     run: async (member) => {
-      console.log(member)
       let SAFR_Guild = member.guilds.cache.find(g => g.id === '680036316783968316')
-      console.log(SAFR_Guild)
 
-      console.log(member.guild); return;
-        if(member.guild.id !== '680036316783968316') return;
-        let Channel = await member.guilds.channels.cache.find(ch => ch.id === '685126748492529677');
-        if(!Channel) return;
-        Channel.send(`# Welcome  <@${member.user.id}> to ${member.guild.name}\n[Apply Here](https://cms.safrgaming.com/apply)\nImportant information can be found in #public-information\n<:SAFR:735256212387528785>`)
-        try {
-            member.roles.add('722692460714917908')     
-          } catch (error) {
-            console.log(error)
-          }
+      if(SAFR_Guild.id !== '680036316783968316') return;
+      let Channel = await SAFR_Guild.channels.cache.find(ch => ch.id === '685126748492529677');
+      if(!Channel) return; Channel.send(`# Welcome  <@${member.user.id}> to ${member.guild.name}\n[Apply Here](https://cms.safrgaming.com/apply)\nImportant information can be found in #public-information\n<:SAFR:735256212387528785>`)
+      try {
+        member.roles.add('722692460714917908') 
+      } catch (error) {
+        console.log(error)
+      }
     }
 }
