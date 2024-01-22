@@ -23,7 +23,7 @@ module.exports = class extends Client {
     constructor() {
         super({
             // @ts-ignore
-            intents: [Object.keys(GatewayIntentBits), GatewayIntentBits.GuildMembers],
+            intents: [Object.keys(GatewayIntentBits), GatewayIntentBits.GuildMembers, GatewayIntentBits.Guilds],
             // @ts-ignore
             partials: [Object.keys(Partials)],
             presence: {
