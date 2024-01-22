@@ -12,6 +12,7 @@ module.exports = {
      */
     run: async (member, client) => {
       let SAFR_Guild = member.guilds.cache.find(g => g.id === '680036316783968316')
+      let member = SAFR_Guild.members.cache.find(m => m.id === client.user.id)
       // @ts-ignore
 
       if(SAFR_Guild.id !== '680036316783968316') return;
