@@ -11,6 +11,7 @@ module.exports = {
      * @returns
      */
     run: async (member) => {
+      console.log(member)
         if(member.guild.id !== '680036316783968316') return;
         let Channel = await member.guilds.channels.cache.find(ch => ch.id === '685126748492529677');
         if(!Channel) return;
