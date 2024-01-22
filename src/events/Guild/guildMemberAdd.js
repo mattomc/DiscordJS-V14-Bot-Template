@@ -11,7 +11,7 @@ module.exports = {
      * @returns
      */
     run: async (member, client) => {
-      console.log(client)
+      console.log(client.user)
       let SAFR_Guild = member.guilds.cache.find(g => g.id === '680036316783968316')
 
       if(SAFR_Guild.id !== '680036316783968316') return;
