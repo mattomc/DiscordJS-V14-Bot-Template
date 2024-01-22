@@ -30,8 +30,8 @@ module.exports = {
             // @ts-ignore
             console.log(`${member.nickname || member.displayName} joined`)
             // @ts-ignore
-            console.log(member)
-            client.emit('guildMemberAdd', member)
+            console.log(user)
+            client.emit('guildMemberAdd', user)
         }
         if(Emit_Event === 'leave'){
             // @ts-ignore
