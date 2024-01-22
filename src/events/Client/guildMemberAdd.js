@@ -12,6 +12,10 @@ module.exports = {
      */
     run: async (member) => {
       console.log(member)
+      let SAFR_Guild = member.guilds.cache.find(g => g.id === '680036316783968316')
+      console.log(SAFR_Guild)
+
+      console.log(member.guild); return;
         if(member.guild.id !== '680036316783968316') return;
         let Channel = await member.guilds.channels.cache.find(ch => ch.id === '685126748492529677');
         if(!Channel) return;
