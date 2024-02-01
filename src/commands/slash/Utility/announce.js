@@ -1,4 +1,4 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder } = require('discord.js');
+const { ChatInputCommandInteraction, PermissionFlagsBits, SlashCommandBuilder } = require('discord.js');
 const ExtendedClient = require('../../../class/ExtendedClient');
 
 module.exports = {
@@ -7,6 +7,7 @@ module.exports = {
         .setDescription('Sends a announcement to a specified channel')
         .addStringOption((opt) => opt.setName('message').setDescription('Message to announce').setRequired(true))
         .addChannelOption((opt) => opt.setName('channel').setDescription('Channel the announcement will be posted').setRequired(true))
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
         .addMentionableOption((opt) => opt.setName('mention').setDescription('Role to mention')),
     options: {
         cooldown: 5000
