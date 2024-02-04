@@ -35,6 +35,8 @@ module.exports = {
         if(Emit_Event === 'leave'){
             // @ts-ignore
             console.log(`${member.nickname || member.displayName} Left`)
+                        // @ts-ignore
+            client.emit('guildMemberRemove', member)
         }
     }
 };
