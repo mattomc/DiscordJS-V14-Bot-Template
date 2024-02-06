@@ -5,7 +5,7 @@ module.exports = {
     structure: {
         name: 'announce',
         description: 'Announce a message',
-        aliases: ['say', 'sayembed'],
+        aliases: ['embed'],
         permissions: 'Administrator',
         cooldown: 5000
     },
