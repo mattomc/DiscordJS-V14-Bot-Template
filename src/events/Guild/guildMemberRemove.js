@@ -1,3 +1,4 @@
+// @ts-nocheck
 // @ts-ignore
 const config = require("../../config");
 // @ts-ignore
@@ -20,19 +21,9 @@ module.exports = {
       let Member_Name;
 
       if(client.guild.id !== '680036316783968316') return;
-      await axios({
-        method: 'patch',
-        url: 'https://cms.safrgaming.com/api/discord/member/leave',
-        data: {
-          "DiscordID": client.user?.id,
-        },
-        headers: {
-          'DiscordID': '582540910554906645'
-        }
-      }).then(async res => {
-        console.log(res.data)
-        Member_Name = res.data.profile ? res.data.profile.username : 'N/A';
-      })
+      const leave = await axios.post(`https://cms.safrgaming.com/members/discord/leave?discordid=${client.user?.id}&auth=582540910554906645`)
+        console.log(leave.data)
+        Member_Name = leave.data.profile ? res.data.profile.username : 'N/A';
       if(Member_Name === 'N/A') Member_Name = client.user?.username;
       SAFR_Leave_Channel.send(`Member: ${Member_Name} Left`)
 
